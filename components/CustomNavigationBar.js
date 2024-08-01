@@ -29,8 +29,8 @@ const CustomNavigationBar = ({ state, descriptors, navigation }) => {
           >
             <Icon
               name={index === 0 ? 'home' : 'user'}
-              size={24}
-              color={isFocused ? '#fff' : '#888'}
+              size={30} // Increased icon size
+              color={isFocused ? '#fff' : '#b0b0b0'} // Slightly lighter inactive color
             />
           </TouchableOpacity>
         );
@@ -43,28 +43,31 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    height: 60,
-    backgroundColor: '#000', // Black background
-    borderTopColor: '#444',  // Darker border
+    height: 70, // Increased height for better spacing
+    backgroundColor: '#1f1f1f', // Slightly lighter black
+    borderTopColor: '#333',  // Darker border
     borderTopWidth: 1,
-    elevation: 5, // Add shadow for Android
-    shadowColor: '#000', // Shadow color for iOS
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset
-    shadowOpacity: 0.2, // Shadow opacity
-    shadowRadius: 4, // Shadow radius
+    elevation: 10, // Increased elevation for more shadow
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 5 }, // Increased shadow offset
+    shadowOpacity: 0.3, // Increased shadow opacity
+    shadowRadius: 10, // Increased shadow radius
   },
   tab: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: 20, // Increased padding
   },
   activeTab: {
-    backgroundColor: '#333', // Darker background for active tab
-    borderRadius: 10,
+    backgroundColor: '#444', // Darker background for active tab
+    borderRadius: 20, // Increased border radius for more rounded effect
+    paddingVertical: 5, // Added vertical padding
+    borderWidth: 2, // Added border width
+    borderColor: '#673ab7', // Border color
   },
   inactiveTab: {
-    backgroundColor: 'transparent', // Transparent background for inactive tabs
+    backgroundColor: 'transparent',
   },
 });
 
