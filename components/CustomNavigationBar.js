@@ -15,6 +15,20 @@ const CustomNavigationBar = ({ state, descriptors, navigation }) => {
           navigation.navigate(route.name);
         };
 
+        // Determine the icon name based on the route name
+        const iconName = (() => {
+          switch (route.name) {
+            case 'Home':
+              return 'home';
+            case 'Profile':
+              return 'user';
+            case 'Settings':
+              return 'cog'; // Assuming 'cog' is the icon name for settings
+            default:
+              return 'question'; // Fallback icon
+          }
+        })();
+
         return (
           <TouchableOpacity
             key={index}
@@ -28,8 +42,8 @@ const CustomNavigationBar = ({ state, descriptors, navigation }) => {
             ]}
           >
             <Icon
-              name={index === 0 ? 'home' : 'user'}
-              size={30} // Increased icon size
+              name={iconName}
+              size={24} // Decreased icon size
               color={isFocused ? '#fff' : '#b0b0b0'} // Slightly lighter inactive color
             />
           </TouchableOpacity>
@@ -43,27 +57,27 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    height: 70, // Increased height for better spacing
+    height: 60, // Decreased height
     backgroundColor: '#1f1f1f', // Slightly lighter black
     borderTopColor: '#333',  // Darker border
     borderTopWidth: 1,
-    elevation: 10, // Increased elevation for more shadow
+    elevation: 5, // Decreased elevation
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 5 }, // Increased shadow offset
-    shadowOpacity: 0.3, // Increased shadow opacity
-    shadowRadius: 10, // Increased shadow radius
+    shadowOffset: { width: 0, height: 3 }, // Decreased shadow offset
+    shadowOpacity: 0.2, // Decreased shadow opacity
+    shadowRadius: 5, // Decreased shadow radius
   },
   tab: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 20, // Increased padding
+    paddingHorizontal: 15, // Decreased padding
   },
   activeTab: {
     backgroundColor: '#444', // Darker background for active tab
-    borderRadius: 20, // Increased border radius for more rounded effect
-    paddingVertical: 5, // Added vertical padding
-    borderWidth: 2, // Added border width
+    borderRadius: 15, // Reduced border radius
+    paddingVertical: 3, // Reduced vertical padding
+    borderWidth: 1, // Reduced border width
     borderColor: '#673ab7', // Border color
   },
   inactiveTab: {
